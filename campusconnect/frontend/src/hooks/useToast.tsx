@@ -1,0 +1,3 @@
+import { useState } from 'react'
+export function useToast(){const [toast,setToast]=useState<React.ReactNode|null>(null);function showToast(message:string,type:'success'|'error'='success'){setToast(<ToastHolder message={message} type={type}/>);setTimeout(()=>setToast(null),3000)}return {toast,showToast}}
+function ToastHolder({message,type}:{message:string;type:'success'|'error'}){return <div className={`fixed bottom-5 right-5 z-[100] rounded-2xl border bg-white px-4 py-3 shadow-2xl ${type==='success'?'border-emerald-100 text-emerald-700':'border-rose-100 text-rose-700'}`}><p className="text-sm font-semibold">{message}</p></div>}
